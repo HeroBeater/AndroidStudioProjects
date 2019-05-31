@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction("com.example.lab10application");
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        final String Second_MainActivity = "com.example.otherSecondApp.MainActivity";
+        final String Second_Apps_Package = "com.example.otherSecondApp";
+        intent.setComponent(new ComponentName(Second_Apps_Package, Second_MainActivity));
         intent.putExtra("data",stockArr);
         sendBroadcast(intent);
     }
