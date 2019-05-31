@@ -1,5 +1,6 @@
 package com.example.lab10application;
 
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,7 +9,6 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setAction("com.example.lab10application");
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        final String Second_MainActivity = "com.example.otherSecondApp.MainActivity";
+        final String Second_Apps_Package = "com.example.otherSecondApp";
+        intent.setComponent(new ComponentName(Second_Apps_Package, Second_MainActivity));
         intent.putExtra("data",stockArr);
         sendBroadcast(intent);
     }
